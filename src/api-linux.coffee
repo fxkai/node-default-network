@@ -27,12 +27,12 @@ getDefaultNetwork = (command, callback) ->
     callback(null, data)
 
 getDefaultNetworkByInet4 = (callback) ->
-  getDefaultNetwork "netstat -rn -A inet | awk '$4~/UG/ {print $2,$8;}'",
+  getDefaultNetwork "netstat -rn -a inet | awk '$4~/UG/ {print $2,$8;}'",
     (error, data) ->
       callback(error, data)
 
 getDefaultNetworkByInet6 = (callback) ->
-  getDefaultNetwork "netstat -rn -A inet6 | awk '$4~/UG/ {print $2,$7;}'",
+  getDefaultNetwork "netstat -rn -a inet6 | awk '$4~/UG/ {print $2,$7;}'",
     (error, data) ->
       callback(error, data)
 
